@@ -1,0 +1,14 @@
+Index: trunk/build_firmware.sh
+===================================================================
+--- trunk/build_firmware.sh	(版本 305)
++++ trunk/build_firmware.sh	(工作副本)
+@@ -249,7 +249,8 @@
+ 		echo ${FIRMWARE_REBUILD_NUMBER} > .firmware_rebuild_number
+ 	else
+ 		FIRMWARE_REBUILD_NUMBER=$( cat .firmware_rebuild_number )
+-		(( FIRMWARE_REBUILD_NUMBER+=1 ))
++		#(( FIRMWARE_REBUILD_NUMBER+=1 ))
++		FIRMWARE_REBUILD_NUMBER=`expr ${FIRMWARE_REBUILD_NUMBER} + 1`
+ 		echo ${FIRMWARE_REBUILD_NUMBER} > .firmware_rebuild_number
+ 	fi
+ 	if [ ! -f .firmware_base_name ] ; then
