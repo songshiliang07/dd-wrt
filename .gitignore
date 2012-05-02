@@ -1,6 +1,11 @@
 glib-1.2.10
+libghttp-1.0.9
 *.o
 *.a
+firmware-mod-kit
+dd-wrt.v24_std_generic
+custom_firmware
+
 NoCatSplash-0.92/Makefile
 NoCatSplash-0.92/config.log
 NoCatSplash-0.92/config.status
