@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CURRENT_DIR=`pwd`
-TOOLCHAINS=/workspace/workspace/DD-WRT_toolchains/toolchain-mipsel_3.3.6_BRCM24/bin
+TOOLCHAINS=$CURRENT_DIR/toolchain-mipsel_3.3.6_BRCM24/bin
 GLIB_DIR=$CURRENT_DIR/mipsel-linux/glib
 TARGET_DIR=$CURRENT_DIR/dd-wrt.v24_std_generic
 
