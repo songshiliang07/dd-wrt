@@ -70,7 +70,7 @@ if test -d $TARGET_DIR; then
 	echo no need to extract firmware...
 else
 	cd firmware-mod-kit/trunk
-	sudo ./extract_firmware.sh $CURRENT_DIR/dd-wrt.v24_std_generic.bin $TARGET_DIR
+	./extract_firmware.sh $CURRENT_DIR/dd-wrt.v24_std_generic.bin $TARGET_DIR
 	cd ../..
 fi
 

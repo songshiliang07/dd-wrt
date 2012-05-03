@@ -20,6 +20,6 @@ echo $TARGET_DIR
 PATH=$TOOLCHAINS:$PATH
 
 cd firmware-mod-kit/trunk
-sudo ./build_firmware.sh $CURRENT_DIR/custom_firmware $TARGET_DIR
+./build_firmware.sh $CURRENT_DIR/custom_firmware $TARGET_DIR
 cd ../..
 
