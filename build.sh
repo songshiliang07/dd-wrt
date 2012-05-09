@@ -27,7 +27,7 @@ PATH=$TOOLCHAIN_DIR/bin:$PATH
 cd NoCatSplash-0.92
 make clean
 # 配置
-./configure --target=mipsel-linux --host=mipsel-linux --build=mipsel-linux --disable-shared --enable-static --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --libexecdir=/usr/lib --sysconfdir=/etc --datadir=/usr/share --localstatedir=/var --mandir=/usr/man --infodir=/usr/info --with-mode=open --with-remote-splash --with-firewall=iptables --with-docroot=/www --disable-glibtest --with-glib-prefix=$GLIB_DIR
+./configure --target=mipsel-linux --disable-shared --enable-static --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --libexecdir=/usr/lib --sysconfdir=/etc --datadir=/usr/share --localstatedir=/var --mandir=/usr/man --infodir=/usr/info --with-mode=open --with-remote-splash --with-firewall=iptables --with-docroot=/www --disable-glibtest --with-glib-prefix=$GLIB_DIR
 # 编译
 make CC=mipsel-linux-uclibc-gcc LD=mipsel-linux-uclibc-ld CFLAGS="-I$GLIB_DIR/include -DHAVE_LIBGHTTP -g -O2" LIBS="-L$GLIB_DIR/lib -lglib -lghttp"
 # 安装到固件工作目录的合适位置
