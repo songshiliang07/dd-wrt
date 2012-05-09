@@ -7,17 +7,22 @@ if test $0 != $SCRIPT_NAME; then
 	exit -1
 fi
 
+if test -z $TOOLCHAIN; then
+	echo set default toolchain
+	TOOLCHAIN=toolchain-mipsel_4.1.1_BRCM24
+fi
+
 CURRENT_DIR=`pwd`
-TOOLCHAINS=$CURRENT_DIR/toolchain-mipsel_3.3.6_BRCM24/bin
+TOOLCHAIN_DIR=$CURRENT_DIR/$TOOLCHAIN
 GLIB_DIR=$CURRENT_DIR/mipsel-linux/glib
 TARGET_DIR=$CURRENT_DIR/dd-wrt.v24_std_generic
 
 echo $CURRENT_DIR
-echo $TOOLCHAINS
+echo $TOOLCHAIN_DIR
 echo $GLIB_DIR
 echo $TARGET_DIR
 
-PATH=$TOOLCHAINS:$PATH
+PATH=$TOOLCHAIN_DIR/bin:$PATH
 
 cd NoCatSplash-0.92
 make clean
@@ -26,6 +31,6 @@ make clean
 # 编译
 make CC=mipsel-linux-uclibc-gcc LD=mipsel-linux-uclibc-ld CFLAGS="-I$GLIB_DIR/include -DHAVE_LIBGHTTP -g -O2" LIBS="-L$GLIB_DIR/lib -lglib -lghttp"
 # 安装到固件工作目录的合适位置
-/usr/bin/install -c -v -s --strip-program=$TOOLCHAINS/mipsel-linux-uclibc-strip src/splashd $TARGET_DIR/rootfs/usr/sbin/splashd
+/usr/bin/install -c -v -s --strip-program=$TOOLCHAIN_DIR/bin/mipsel-linux-uclibc-strip src/splashd $TARGET_DIR/rootfs/usr/sbin/splashd
 cd ..
 

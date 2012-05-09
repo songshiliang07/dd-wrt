@@ -4,6 +4,9 @@ libghttp-1.0.9
 *.a
 firmware-mod-kit
 toolchain-mipsel_3.3.6_BRCM24
+toolchain-mipsel_4.1.1_BRCM24
+3.4.6-uclibc-0.9.28
+4.1.0-uclibc-0.9.28
 dd-wrt.v24_std_generic
 custom_firmware
 

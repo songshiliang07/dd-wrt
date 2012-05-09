@@ -7,17 +7,22 @@ if test $0 != $SCRIPT_NAME; then
 	exit -1
 fi
 
+if test -z $TOOLCHAIN; then
+	echo set default toolchain
+	TOOLCHAIN=toolchain-mipsel_4.1.1_BRCM24
+fi
+
 CURRENT_DIR=`pwd`
-TOOLCHAINS=$CURRENT_DIR/toolchain-mipsel_3.3.6_BRCM24/bin
+TOOLCHAIN_DIR=$CURRENT_DIR/$TOOLCHAIN
 GLIB_DIR=$CURRENT_DIR/mipsel-linux/glib
 TARGET_DIR=$CURRENT_DIR/dd-wrt.v24_std_generic
 
 echo $CURRENT_DIR
-echo $TOOLCHAINS
+echo $TOOLCHAIN_DIR
 echo $GLIB_DIR
 echo $TARGET_DIR
 
-PATH=$TOOLCHAINS:$PATH
+PATH=$TOOLCHAIN_DIR/bin:$PATH
 
 cd firmware-mod-kit/trunk
 ./build_firmware.sh $CURRENT_DIR/custom_firmware $TARGET_DIR
